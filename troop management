@@ -1,0 +1,36 @@
+class Troop:
+    def __init__(self, name, damage, health):
+        self.name = name
+        self.damage = damage
+        self.health = health
+
+    def attack(self):
+        print(f"{self.name} is attacking! Damage dealt: {self.damage}")
+
+    def take_damage(self, amount):
+        self.health -= amount
+        print(f"{self.name} took {amount} damage. Remaining health: {self.health}")
+
+
+class Army:
+    def __init__(self):
+        self.troops = []
+
+    def add_troop(self, troop):
+        self.troops.append(troop)
+
+    def deploy_troops(self):
+        print("Deploying troops:")
+        for troop in self.troops:
+            troop.attack()
+
+
+# Example usage:
+archer = Troop("Archer", 10, 30)
+barbarian = Troop("Barbarian", 15, 50)
+
+my_army = Army()
+my_army.add_troop(archer)
+my_army.add_troop(barbarian)
+
+my_army.deploy_troops()
