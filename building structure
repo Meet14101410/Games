@@ -1,0 +1,34 @@
+class Building:
+    def __init__(self, name, level, hitpoints):
+        self.name = name
+        self.level = level
+        self.hitpoints = hitpoints
+
+    def upgrade(self):
+        self.level += 1
+        self.hitpoints += 10
+        print(f"{self.name} upgraded to level {self.level}. New hitpoints: {self.hitpoints}")
+
+
+class Village:
+    def __init__(self):
+        self.buildings = []
+
+    def add_building(self, building):
+        self.buildings.append(building)
+
+    def upgrade_all_buildings(self):
+        print("Upgrading all buildings:")
+        for building in self.buildings:
+            building.upgrade()
+
+
+# Example usage:
+gold_mine = Building("Gold Mine", 1, 100)
+elixir_collector = Building("Elixir Collector", 1, 120)
+
+my_village = Village()
+my_village.add_building(gold_mine)
+my_village.add_building(elixir_collector)
+
+my_village.upgrade_all_buildings()
